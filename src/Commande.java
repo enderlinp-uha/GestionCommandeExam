@@ -3,6 +3,7 @@ import java.util.List;
 
 public class Commande {
     private int id = 0; // ou -1
+    private Client client;
     private List<Produit> produits = new ArrayList<>();
     private double prixTotal = 0.0;
     private EStatutCommande statut;
@@ -11,6 +12,7 @@ public class Commande {
 
     private Commande(CommandeBuilder builder) {
         this.id = builder.id;
+        this.client = builder.client;
         this.produits = builder.produits;
         this.prixTotal = builder.prixTotal;
         this.statut = builder.statut;
@@ -18,6 +20,10 @@ public class Commande {
 
     public int getId() {
         return id;
+    }
+
+    public Client getClient() {
+        return client;
     }
 
     public List<Produit> getProduits() {
@@ -48,6 +54,7 @@ public class Commande {
     public String toString() {
         return "Commande{"
                 + "id=" + id
+                + ", client=" + client
                 + ", produits=" + produits
                 + ", prixTotal=" + prixTotal
                 + ", statut=" + statut
@@ -57,12 +64,19 @@ public class Commande {
 
     public static class CommandeBuilder {
         private int id;
+        private Client client;
         private List<Produit> produits = new ArrayList<>();
         private double prixTotal = 0.0;
         private EStatutCommande statut;
 
         public CommandeBuilder setId(int id) {
             this.id = id;
+            this.statut = EStatutCommande.COURS;
+            return this;
+        }
+
+        public CommandeBuilder setClient(Client client) {
+            this.client = client;
             return this;
         }
 

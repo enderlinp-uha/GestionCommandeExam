@@ -1,5 +1,3 @@
-import java.util.List;
-
 public class Main {
     public static void main(String[] args) {
         // Initialisation de la base de données des produits
@@ -9,31 +7,40 @@ public class Main {
         produits.creer(FProduit.creerProduit("Interstellar", ECategorieProduit.DVD, 7.45, 10));
         // produits.afficherListe();
 
-        // Instanciation de la chaîne de responsabilités
-        ChaineMaitre chaine = new ChaineMaitre();
-
-        // Instanciation du système de notification
-        CommandeNotification systemeNotification = new CommandeNotification();
+        // Initialisation de la chaîne de responsabilités
+        ChaineInitialistion chaine = new ChaineInitialistion();
 
         // Création d'un nouveau client
-        Client client = new Client();
+        Client client = new Client("ENDERLIN", "Philippe", "philippe.enderlin@uha.fr", "68100", "Mulhouse");
+
+        // Initialisation du système de notification
+        CommandeNotification systemeNotification = new CommandeNotification();
         systemeNotification.ajouterObservateur(client);
-        systemeNotification.publierNotification("Cher client, votre panier vient d'être créé");
-        //System.out.println(client.recevoirNotification());
 
         // Ajout des articles au panier
         Panier panier = new Panier();
-        panier.ajouter(produits.obtenir(1));
-        panier.ajouter(produits.obtenir(3));
+        panier.ajouterPanier(produits.obtenirProduit(1));
+        panier.ajouterPanier(produits.obtenirProduit(3));
         // System.out.println(panier);
 
-        // Création de la commande
+        // Calcul du prix total du panier
+        double prixTotal = panier.calculerPrixTotalPanier();
+
+        // Construction de la commande
         Commande commande = new Commande.CommandeBuilder()
-                .setProduits(panier.obtenir())
-                .setPrixTotal(panier.calculerPrixTotal())
-                .setStatut(EStatutCommande.COURS)
+                .setClient(client)
+                .setProduits(panier.obtenirPanier())
+                .setPrixTotal(prixTotal)
                 .build();
 
-        //
+        // Envoi d'une notification au client
+        systemeNotification.publierNotification("Cher client, votre commande vient d'être créé.");
+
+        // Initialisation du système de paiement
+        IMoyenPaiement moyenPaiement = FMoyenPaiement.payerCarteBancaire();
+        moyenPaiement.payer(prixTotal);
+
+        systemeNotification.publierNotification("Cher client, votre commande vient d'être validée.");
+        systemeNotification.publierNotification("Cher client, votre commande vient d'être expédiée.");
     }
 }

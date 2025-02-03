@@ -1,7 +1,7 @@
-public class ChaineMaitre {
+public class ChaineInitialistion {
     private ICommandeGestionnaire premiereChaine;
 
-    public ChaineMaitre() {
+    public ChaineInitialistion() {
         this.premiereChaine = new ChaineVerificationStock();
         ICommandeGestionnaire chainePaiement = new ChaineVerificationPaiement();
         ICommandeGestionnaire chaineEnvoi = new ChaineEnvoiCommande();
@@ -12,9 +12,7 @@ public class ChaineMaitre {
 
     public void gererCommande(Commande commande) {
         STransactionLogger.getInstance().log(ELogType.STATUT, commande.toString());
-
         this.premiereChaine.gererCommande(commande);
-
         STransactionLogger.getInstance().log(ELogType.STATUT, commande.toString());
     }
 }

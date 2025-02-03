@@ -7,7 +7,7 @@ public class CommandeNotification implements ISujet {
 
     public CommandeNotification() {
         observateurs = new ArrayList<IObservateur>();
-        STransactionLogger.getInstance().log(ELogType.SYSTEME, "Initialisation du système de notification");
+        STransactionLogger.getInstance().log(ELogType.INFO, "Initialisation du système de notification");
     }
 
     public void ajouterObservateur(IObservateur observateur) {
@@ -15,8 +15,8 @@ public class CommandeNotification implements ISujet {
     }
 
     public void notifierObservateur() {
-        for (IObservateur o : observateurs) {
-            o.actualiser(this.message);
+        for (IObservateur observateur : observateurs) {
+            observateur.actualiser(this.message);
         }
     }
 

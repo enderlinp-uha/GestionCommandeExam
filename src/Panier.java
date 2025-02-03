@@ -4,19 +4,19 @@ import java.util.List;
 public class Panier {
     private List<Produit> panier = new ArrayList<>();
 
-    public void ajouter(Produit produit) {
+    public void ajouterPanier(Produit produit) {
         panier.add(produit);
     }
 
-    public List<Produit> obtenir() {
+    public List<Produit> obtenirPanier() {
         return panier;
     }
 
-    public double calculerPrixTotal() {
+    public double calculerPrixTotalPanier() {
         double total = 0;
 
         for (Produit produit : panier) {
-            total += produit.getPrixUnitaire();
+            total += produit.obtenirPrixUnitaire();
         }
 
         return total;

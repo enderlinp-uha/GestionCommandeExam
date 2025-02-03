@@ -8,6 +8,6 @@ public class ChaineVerificationStock implements ICommandeGestionnaire {
 
     @Override
     public void gererCommande(Commande commande) {
-
+        System.out.println(commande);
     }
 }
