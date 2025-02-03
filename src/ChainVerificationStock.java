@@ -17,6 +17,7 @@ public class ChainVerificationStock implements ICommandeGestionnaire {
         // Si le stock est vide pour au moins un article
         for (Produit produit : commande.getProduits()) {
             int stock = produit.obtenirStock();
+
             if (stock > 1) {
                 produit.retirerStock();
             } else {
@@ -35,6 +36,8 @@ public class ChainVerificationStock implements ICommandeGestionnaire {
                 "Nous avons le plaisir de vous annoncer que votre commande vient d'être créé.");
         System.out.println(client.recevoirNotification());
 
-        suivant.traiterCommande(commande);
+        if (suivant != null) {
+            suivant.traiterCommande(commande);
+        }
     }
 }
