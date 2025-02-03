@@ -28,16 +28,11 @@ public class Main {
         panier.ajouterPanier(produits.obtenirProduit(1));
         panier.ajouterPanier(produits.obtenirProduit(4));
 
-        // Calcul du prix total du panier
-        double prixTotal = panier.calculerPrixTotalPanier();
-
-        // Construction de la commande
-        Commande commande = new Commande.CommandeBuilder()
-                .setClient(client)
-                .setProduits(panier.obtenirPanier())
-                .setPrixTotal(prixTotal)
-                .setMoyenPaiement(EMoyenPaiement.CREDIT) // Règlement par carte bancaire
-                .build();
+        // Construction de la commande, avec règlement par carte bancaire
+        Commande commande = FCommande.creerCommandeCarteBancaire(
+                client,
+                panier.obtenirListeProduitPanier(),
+                panier.calculerPrixTotalPanier());
 
         // Traitement de la commande
         chaine.traiterCommande(commande);
