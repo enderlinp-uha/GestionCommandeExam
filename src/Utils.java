@@ -1,9 +1,14 @@
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 
 public class Utils {
     public static double arrondirDouble(double value) {
         return Math.round(value * 100.0) / 100.0;
+    }
+
+    public static boolean estMoyenPaiement(EMoyenPaiement type) {
+        return Arrays.asList(Utils.obtenirMoyenPaiement()).contains(type);
     }
 
     public static String formaterDate(Date date, String format) {
@@ -18,5 +23,9 @@ public class Utils {
             case CRYPTO -> "Cryptomonnaie";
             case PAYPAL -> "PayPal";
         };
+    }
+
+    public static EMoyenPaiement[] obtenirMoyenPaiement() {
+        return new EMoyenPaiement[]{ EMoyenPaiement.CREDIT, EMoyenPaiement.CRYPTO, EMoyenPaiement.PAYPAL };
     }
 }
