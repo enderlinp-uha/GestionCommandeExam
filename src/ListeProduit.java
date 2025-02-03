@@ -10,4 +10,10 @@ public class ListeProduit {
     public void creer(Produit produit) {
         this.produits.put(produit.getId(), produit);
     }
+
+    public void afficher() {
+        for (Produit produit : produits.values()) {
+            System.out.println(produit);
+        }
+    }
 }
