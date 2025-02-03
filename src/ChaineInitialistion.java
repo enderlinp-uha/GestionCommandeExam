@@ -11,7 +11,6 @@ public class ChaineInitialistion {
     }
 
     public void gererCommande(Commande commande) {
-
         STransactionLogger.getInstance().log(ELogType.STATUT, commande.toString());
 
         this.premiereChaine.gererCommande(commande);

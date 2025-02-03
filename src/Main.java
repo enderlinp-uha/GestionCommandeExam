@@ -9,7 +9,7 @@ public class Main {
         // produits.afficherListeProduits();
 
         // Création d'un nouveau client
-        Client client = new Client("L'éponge", "Bob", "spongebob@uha.fr", "SERFA", "68200", "Mulhouse", 10.0);
+        Client client = new Client("L'éponge", "Bob", "spongebob@uha.fr", "SERFA", "68200", "Mulhouse", 100.0);
 
         // Initialisation de la chaîne de responsabilités
         ChaineInitialistion chaine = new ChaineInitialistion();
@@ -30,12 +30,7 @@ public class Main {
                 .setPrixTotal(prixTotal)
                 .build();
 
-        // Initialisation du système de paiement
-        // et règlement par carte bancaire
-        // IMoyenPaiement moyenPaiement = FMoyenPaiement.payerCarteBancaire();
-        // moyenPaiement.payer(prixTotal);
-
-        //
+        // Traitement de la commande
         chaine.gererCommande(commande);
     }
 }
