@@ -13,6 +13,10 @@ public class Produit {
         this.stock = stock;
     }
 
+    public int getId() {
+        return id;
+    }
+
     @Override
     public String toString() {
         return "Produit{"

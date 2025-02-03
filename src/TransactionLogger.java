@@ -6,7 +6,7 @@ public class TransactionLogger {
     private List<String> logs = new ArrayList<>();
 
     public TransactionLogger() {
-        this.log(ELogType.INFO, "Logger initialisé");
+        this.log(ELogType.INFO, "Initialisation de l'enregistreur");
     }
 
     private String prependLog(ELogType type, String message) {
