@@ -7,6 +7,6 @@ public class CarteBancaire implements IMoyenPaiement {
 
     @Override
     public void payer(double montant) {
-        STransactionLogger.getInstance().log(ELogType.INFO, montant + " € réglés par " + moyenPaiement);
+        STransactionLogger.getInstance().log(ELogType.NOTICE, montant + " € réglés par " + moyenPaiement);
     }
 }
