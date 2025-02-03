@@ -6,7 +6,7 @@ public class TransactionLogger {
     private List<String> logs = new ArrayList<>();
 
     public TransactionLogger() {
-        this.log(ELogType.INFO, "Initialisation de l'enregistreur");
+        this.log(ELogType.DEBUG, "Initialisation de l'enregistreur");
     }
 
     private String prefixerLog(ELogType type, String message) {
