@@ -21,9 +21,9 @@ public class TransactionLogger {
     }
 
     public void log(ELogType type, String message) {
-        String entry = prefixerLog(type, message);
-        logs.add(entry);
+        String logPrefixe = prefixerLog(type, message);
+        logs.add(logPrefixe);
 
-        System.out.println(entry);
+        System.out.println(logPrefixe);
     }
 }
