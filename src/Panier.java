@@ -4,14 +4,6 @@ import java.util.List;
 public class Panier {
     private List<Produit> panier = new ArrayList<>();
 
-    public void ajouterPanier(Produit produit) {
-        panier.add(produit);
-    }
-
-    public List<Produit> obtenirListeProduitPanier() {
-        return panier;
-    }
-
     public double calculerPrixTotalPanier() {
         double total = 0;
 
@@ -19,7 +11,21 @@ public class Panier {
             total += produit.obtenirPrixUnitaire();
         }
 
+        total = Utils.arrondirDouble(total);
+
         return total;
+    }
+
+    public List<Produit> obtenirListeProduitPanier() {
+        return panier;
+    }
+
+    public void ajouterPanier(Produit produit) {
+        panier.add(produit);
+    }
+
+    public void viderPanier() {
+        panier.clear();
     }
 
     @Override
