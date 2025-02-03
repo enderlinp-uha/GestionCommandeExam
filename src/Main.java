@@ -5,7 +5,8 @@ public class Main {
         produits.creer(FProduit.creerProduit("Blade Runner", ECategorieProduit.LIVRE, 8.00, 5));
         produits.creer(FProduit.creerProduit("2001 : L'Odyssée de l'espace", ECategorieProduit.LIVRE, 8.40, 3));
         produits.creer(FProduit.creerProduit("Interstellar", ECategorieProduit.DVD, 7.45, 10));
-        // produits.afficherListe();
+        produits.creer(FProduit.creerProduit("Knight of Cups", ECategorieProduit.DVD, 10.00, 3));
+        produits.afficherListeProduits();
 
         // Initialisation de la chaîne de responsabilités
         ChaineInitialistion chaine = new ChaineInitialistion();
@@ -20,7 +21,7 @@ public class Main {
         // Ajout des articles au panier
         Panier panier = new Panier();
         panier.ajouterPanier(produits.obtenirProduit(1));
-        panier.ajouterPanier(produits.obtenirProduit(3));
+        panier.ajouterPanier(produits.obtenirProduit(4));
         // System.out.println(panier);
 
         // Calcul du prix total du panier
