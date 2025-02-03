@@ -11,10 +11,10 @@ public class ChaineMaitre {
     }
 
     public void gererCommande(Commande commande) {
-        STransactionLogger.getInstance().log(ELogType.INFO, commande.toString());
+        STransactionLogger.getInstance().log(ELogType.STATUT, commande.toString());
 
         this.premiereChaine.gererCommande(commande);
 
-        STransactionLogger.getInstance().log(ELogType.INFO, commande.toString());
+        STransactionLogger.getInstance().log(ELogType.STATUT, commande.toString());
     }
 }

@@ -4,7 +4,7 @@ public class ProduitBdd {
     private HashMap<Integer, Produit> produits = new HashMap<>();
 
     public ProduitBdd() {
-        STransactionLogger.getInstance().log(ELogType.SYSTEME, "Initialisation de la liste des produits");
+        STransactionLogger.getInstance().log(ELogType.SYSTEME, "Initialisation de la base de données des produits");
     }
 
     public void creer(Produit produit) {

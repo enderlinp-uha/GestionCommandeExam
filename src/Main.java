@@ -2,7 +2,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        // Initialisation de la liste des produits
+        // Initialisation de la base de données des produits
         ProduitBdd produits = SBaseDeDonneesProduit.getInstance();
         produits.creer(FProduit.creerProduit("Blade Runner", ECategorieProduit.LIVRE, 8.00, 5));
         produits.creer(FProduit.creerProduit("2001 : L'Odyssée de l'espace", ECategorieProduit.LIVRE, 8.40, 3));
@@ -11,6 +11,15 @@ public class Main {
 
         // Instanciation de la chaîne de responsabilités
         ChaineMaitre chaine = new ChaineMaitre();
+
+        // Instanciation du système de notification
+        CommandeNotification systemeNotification = new CommandeNotification();
+
+        // Création d'un nouveau client
+        Client client = new Client();
+        systemeNotification.ajouterObservateur(client);
+        systemeNotification.publierNotification("Cher client, votre panier vient d'être créé");
+        //System.out.println(client.recevoirNotification());
 
         // Ajout des articles au panier
         Panier panier = new Panier();

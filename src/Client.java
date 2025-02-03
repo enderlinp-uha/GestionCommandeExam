@@ -8,6 +8,6 @@ public class Client implements IObservateur {
     @Override
     public void actualiser(String message) {
         this.message = message;
-        System.out.println(this.message);
+        System.out.println("Nouvelle notification : " + this.message);
     }
 }
