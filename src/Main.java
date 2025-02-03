@@ -12,7 +12,7 @@ public class Main {
         ChaineInitialistion chaine = new ChaineInitialistion();
 
         // Création d'un nouveau client
-        Client client = new Client("ENDERLIN", "Philippe", "philippe.enderlin@uha.fr", "68100", "Mulhouse");
+        Client client = new Client("L'éponge", "Bob", "spongebob@uha.fr", "68200", "Mulhouse");
 
         // Initialisation du système de notification
         CommandeNotification systemeNotification = new CommandeNotification();
