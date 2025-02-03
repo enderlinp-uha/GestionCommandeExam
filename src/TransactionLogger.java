@@ -6,10 +6,10 @@ public class TransactionLogger {
     private List<String> logs = new ArrayList<>();
 
     public TransactionLogger() {
-        this.log(ELogType.INFO, "Initialisation de l'enregistreur");
+        this.log(ELogType.SYSTEME, "Initialisation de l'enregistreur");
     }
 
-    private String prefixerLog(ELogType type, String message) {
+    private String prefixer(ELogType type, String message) {
         StringBuilder sb = new StringBuilder();
         sb.append(type);
         sb.append(" - ");
@@ -21,10 +21,9 @@ public class TransactionLogger {
     }
 
     public void log(ELogType type, String message) {
-        String entry = prefixerLog(type, message);
+        String entry = prefixer(type, message);
         logs.add(entry);
 
         System.out.println(entry);
-
     }
 }

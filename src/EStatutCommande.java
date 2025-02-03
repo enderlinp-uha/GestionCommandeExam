@@ -1,3 +1,3 @@
 public enum EStatutCommande {
-    ENCOURS, ENATTENTE, EXPEDIEE
+    COURS, ATTENTE, EXPEDIEE
 }

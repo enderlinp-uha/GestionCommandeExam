@@ -84,6 +84,7 @@ public class Commande {
         public Commande build() {
             STransactionLogger.getInstance().log(ELogType.STATUT, "Commande en cours");
 
+
             return new Commande(this);
         }
     }
