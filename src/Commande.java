@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Commande {
-    private static int increment = 0;
+    private static int autoIncrement = 0;
     private int id = 0;
     private Client client;
     private List<Produit> produits = new ArrayList<>();
@@ -49,10 +49,6 @@ public class Commande {
         return this.conclusion;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public void setStatut(boolean statut) {
         this.statut = statut;
     }
@@ -82,9 +78,7 @@ public class Commande {
         private EMoyenPaiement moyenPaiement;
         private boolean statut;
 
-        public CommandeBuilder() {
-            this.id = ++increment;
-        }
+        public CommandeBuilder() {}
 
         public CommandeBuilder setId(int id) {
             this.id = id;
@@ -117,6 +111,7 @@ public class Commande {
         }
 
         public Commande build() {
+            this.id = ++autoIncrement;
             return new Commande(this);
         }
     }
