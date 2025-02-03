@@ -2,7 +2,7 @@ public class Client implements IObservateur {
     private String nom = "";
     private String prenom = "";
     private String email = "";
-    private String addresse = "";
+    private String adresse = "";
     private String codePostal = "";
     private String ville = "";
     private double compteCourant = 0.0;
@@ -13,10 +13,34 @@ public class Client implements IObservateur {
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
-        this.addresse = adresse;
+        this.adresse = adresse;
         this.codePostal = codePostal;
         this.ville = ville;
         this.compteCourant = compteCourant;
+    }
+
+    public String getNom() {
+        return this.nom;
+    }
+
+    public String getPrenom() {
+        return this.prenom;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public String getAdresse() {
+        return this.adresse;
+    }
+
+    public String getCodePostal() {
+        return this.codePostal;
+    }
+
+    public String getVille() {
+        return this.ville;
     }
 
     public double getCompteCourant() {
@@ -43,7 +67,7 @@ public class Client implements IObservateur {
                 + "nom='" + nom + '\''
                 + ", prenom='" + prenom + '\''
                 + ", email='" + email + '\''
-                + ", addresse='" + addresse + '\''
+                + ", adresse='" + adresse + '\''
                 + ", codePostal='" + codePostal + '\''
                 + ", ville='" + ville + '\''
                 + ", compteCourant=" + compteCourant

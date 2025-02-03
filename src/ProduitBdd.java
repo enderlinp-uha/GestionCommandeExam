@@ -18,11 +18,12 @@ public class ProduitBdd {
     public void afficherListeProduits() {
         StringBuilder sb = new StringBuilder();
 
-        sb.append("\nListe des produits :\n");
+        sb.append("---------- Liste des produits ----------\n");
         for (Produit produit : this.produits.values()) {
             sb.append(produit);
             sb.append("\n");
         }
+        sb.append("----------------------------------------");
         String sortie = sb.toString();
 
         System.out.println(sortie);

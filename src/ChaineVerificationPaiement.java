@@ -8,12 +8,12 @@ public class ChaineVerificationPaiement implements ICommandeGestionnaire{
 
     @Override
     public void gererCommande(Commande commande) {
-        // Initialisation du système de notification
-        CommandeNotification systemeNotification = new CommandeNotification();
-        systemeNotification.ajouterObservateur(commande.getClient());
-
         Client client = commande.getClient();
         double prixTotal = commande.getPrixTotal();
+
+        // Initialisation du système de notification
+        CommandeNotification systemeNotification = new CommandeNotification();
+        systemeNotification.ajouterObservateur(client);
 
         if (prixTotal > client.getCompteCourant()) {
             commande.setConclusion("Compte courant insuffisant. Commande annulée");
