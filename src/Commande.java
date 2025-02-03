@@ -2,11 +2,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Commande {
-    private int id = 0; // ou -1
+    private static int increment = 0;
+    private int id = 0;
     private Client client;
     private List<Produit> produits = new ArrayList<>();
     private double prixTotal = 0.0;
-    private EStatutCommande statut;
+    private boolean statut = false;
 
     private String conclusion = "";
 
@@ -16,6 +17,8 @@ public class Commande {
         this.produits = builder.produits;
         this.prixTotal = builder.prixTotal;
         this.statut = builder.statut;
+
+        STransactionLogger.getInstance().log(ELogType.STATUT, "Commande en cours");
     }
 
     public int getId() {
@@ -34,7 +37,7 @@ public class Commande {
         return prixTotal;
     }
 
-    public EStatutCommande getStatut() {
+    public boolean getStatut() {
         return statut;
     }
 
@@ -46,6 +49,10 @@ public class Commande {
         this.id = id;
     }
 
+    public void setStatut(boolean statut) {
+        this.statut = statut;
+    }
+
     public void setConclusion(String conclusion) {
         this.conclusion = conclusion;
     }
@@ -54,7 +61,7 @@ public class Commande {
     public String toString() {
         return "Commande{"
                 + "id=" + id
-                + ", client=" + client
+                + ", client=" + client.toString()
                 + ", produits=" + produits
                 + ", prixTotal=" + prixTotal
                 + ", statut=" + statut
@@ -67,11 +74,14 @@ public class Commande {
         private Client client;
         private List<Produit> produits = new ArrayList<>();
         private double prixTotal = 0.0;
-        private EStatutCommande statut;
+        private boolean statut;
+
+        public CommandeBuilder() {
+            this.id = ++increment;
+        }
 
         public CommandeBuilder setId(int id) {
             this.id = id;
-            this.statut = EStatutCommande.COURS;
             return this;
         }
 
@@ -90,15 +100,12 @@ public class Commande {
             return this;
         }
 
-        public CommandeBuilder setStatut(EStatutCommande statut) {
+        public CommandeBuilder setStatut(boolean statut) {
             this.statut = statut;
             return this;
         }
 
         public Commande build() {
-            STransactionLogger.getInstance().log(ELogType.STATUT, "Commande en cours");
-
-
             return new Commande(this);
         }
     }

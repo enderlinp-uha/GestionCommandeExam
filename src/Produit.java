@@ -29,6 +29,10 @@ public class Produit {
         return stock;
     }
 
+    public void retirerStock() {
+        this.stock -= 1;
+    }
+
     @Override
     public String toString() {
         return "Produit{"
@@ -37,6 +41,6 @@ public class Produit {
                 + ", categorie=" + categorie
                 + ", prixUnitaire=" + prixUnitaire
                 + ", stock=" + stock
-                + "}";
+                + '}';
     }
 }

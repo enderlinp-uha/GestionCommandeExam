@@ -6,17 +6,13 @@ public class Main {
         produits.creer(FProduit.creerProduit("2001 : L'Odyssée de l'espace", ECategorieProduit.LIVRE, 8.40, 3));
         produits.creer(FProduit.creerProduit("Interstellar", ECategorieProduit.DVD, 7.45, 10));
         produits.creer(FProduit.creerProduit("Knight of Cups", ECategorieProduit.DVD, 10.00, 3));
-        produits.afficherListeProduits();
+        // produits.afficherListeProduits();
+
+        // Création d'un nouveau client
+        Client client = new Client("L'éponge", "Bob", "spongebob@uha.fr", "SERFA", "68200", "Mulhouse", 10.0);
 
         // Initialisation de la chaîne de responsabilités
         ChaineInitialistion chaine = new ChaineInitialistion();
-
-        // Création d'un nouveau client
-        Client client = new Client("L'éponge", "Bob", "spongebob@uha.fr", "68200", "Mulhouse");
-
-        // Initialisation du système de notification
-        CommandeNotification systemeNotification = new CommandeNotification();
-        systemeNotification.ajouterObservateur(client);
 
         // Ajout des articles au panier
         Panier panier = new Panier();
@@ -34,14 +30,12 @@ public class Main {
                 .setPrixTotal(prixTotal)
                 .build();
 
-        // Envoi d'une notification au client
-        systemeNotification.publierNotification("Cher client, votre commande vient d'être créé.");
-
         // Initialisation du système de paiement
-        IMoyenPaiement moyenPaiement = FMoyenPaiement.payerCarteBancaire();
-        moyenPaiement.payer(prixTotal);
+        // et règlement par carte bancaire
+        // IMoyenPaiement moyenPaiement = FMoyenPaiement.payerCarteBancaire();
+        // moyenPaiement.payer(prixTotal);
 
-        systemeNotification.publierNotification("Cher client, votre commande vient d'être validée.");
-        systemeNotification.publierNotification("Cher client, votre commande vient d'être expédiée.");
+        //
+        chaine.gererCommande(commande);
     }
 }
