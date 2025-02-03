@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Commande {
     private int id = 0; // ou -1
-    private List<String> produits = new ArrayList<>();
+    private List<Produit> produits = new ArrayList<>();
     private double prixTotal = 0.0;
     private EStatutCommande statut;
 
@@ -20,7 +20,7 @@ public class Commande {
         return id;
     }
 
-    public List<String> getProduits() {
+    public List<Produit> getProduits() {
         return produits;
     }
 
@@ -57,7 +57,7 @@ public class Commande {
 
     public static class CommandBuilder {
         private int id;
-        private List<String> produits = new ArrayList<>();
+        private List<Produit> produits = new ArrayList<>();
         private double prixTotal = 0.0;
         private EStatutCommande statut;
 
@@ -66,7 +66,7 @@ public class Commande {
             return this;
         }
 
-        public CommandBuilder setProduits(List<String> produits) {
+        public CommandBuilder setProduits(List<Produit> produits) {
             this.produits = produits;
             return this;
         }
