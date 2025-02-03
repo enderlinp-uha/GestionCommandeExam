@@ -5,8 +5,8 @@ public class Main {
         produits.creer(FProduit.creerProduit("Blade Runner", ECategorieProduit.LIVRE, 8.00, 5));
         produits.creer(FProduit.creerProduit("2001 : L'Odyssée de l'espace", ECategorieProduit.LIVRE, 8.40, 3));
         produits.creer(FProduit.creerProduit("Interstellar", ECategorieProduit.DVD, 7.45, 10));
-        produits.creer(FProduit.creerProduit("Knight of Cups", ECategorieProduit.DVD, 10.00, 3));
-        // produits.afficherListeProduits();
+        produits.creer(FProduit.creerProduit("Knight of Cups", ECategorieProduit.DVD, 10.00, 2));
+        //produits.afficherListeProduits();
 
         // Création d'un nouveau client
         Client client = FClient.creerClient(
