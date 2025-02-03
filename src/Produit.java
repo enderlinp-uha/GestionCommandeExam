@@ -1,5 +1,5 @@
 public class Produit {
-    private int id = -1;
+    private int id = 0;
     private String nom = "";
     private ECategorieProduit categorie;
     private double prixUnitaire = 0.0;
