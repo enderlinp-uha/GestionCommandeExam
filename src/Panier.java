@@ -8,7 +8,7 @@ public class Panier {
         panier.add(produit);
     }
 
-    public List<Produit> obtenirPanier() {
+    public List<Produit> obtenirListeProduitPanier() {
         return panier;
     }
 
