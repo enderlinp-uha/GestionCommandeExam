@@ -5,7 +5,7 @@ public class Commande {
     private int id = 0; // ou -1
     private List<String> produits = new ArrayList<>();
     private double prixTotal = 0.0;
-    private boolean statut = false;
+    private EStatutCommande statut;
 
     private String conclusion = "";
 
@@ -28,7 +28,7 @@ public class Commande {
         return prixTotal;
     }
 
-    public boolean isStatut() {
+    public EStatutCommande getStatut() {
         return statut;
     }
 
@@ -59,7 +59,7 @@ public class Commande {
         private int id;
         private List<String> produits = new ArrayList<>();
         private double prixTotal = 0.0;
-        private boolean statut;
+        private EStatutCommande statut;
 
         public CommandBuilder setId(int id) {
             this.id = id;
@@ -76,7 +76,7 @@ public class Commande {
             return this;
         }
 
-        public CommandBuilder setStatut(boolean statut) {
+        public CommandBuilder setStatut(EStatutCommande statut) {
             this.statut = statut;
             return this;
         }

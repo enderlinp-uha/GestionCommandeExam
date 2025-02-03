@@ -1,3 +1,3 @@
 public enum EMoyenPaiement {
-    CREDIT, CRYPTO, PAYPAL
+    CARTEBANCAIRE, CRYPTO, PAYPAL
 }
