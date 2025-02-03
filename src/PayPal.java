@@ -5,6 +5,6 @@ public class PayPal implements IMoyenPaiement {
 
     @Override
     public void payer(double montant) {
-        STransactionLogger.getInstance().log(ELogType.PAIEMENT, montant + "€ réglés par " + Utils.libelleMoyenPaiement(EMoyenPaiement.PAYPAL));
+        STransactionLogger.getInstance().log(ELogType.INFO, montant + "€ réglés par " + Utils.libelleMoyenPaiement(EMoyenPaiement.PAYPAL));
     }
 }

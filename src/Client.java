@@ -1,3 +1,5 @@
+import java.util.Date;
+
 public class Client implements IObservateur {
     private String nom = "";
     private String prenom = "";
@@ -5,18 +7,24 @@ public class Client implements IObservateur {
     private String adresse = "";
     private String codePostal = "";
     private String ville = "";
-    private double compteCourant = 0.0;
+    private String message = "";
+    private double soldeCompteCourant = 0.0;
 
-    private String message;
-
-    public Client(String nom, String prenom, String email, String adresse, String codePostal, String ville, double compteCourant) {
+    public Client(String nom,
+                  String prenom,
+                  String email,
+                  String adresse,
+                  String codePostal,
+                  String ville,
+                  double soldeCompteCourant)
+    {
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.adresse = adresse;
         this.codePostal = codePostal;
         this.ville = ville;
-        this.compteCourant = compteCourant;
+        this.soldeCompteCourant = soldeCompteCourant;
     }
 
     public String getNom() {
@@ -43,12 +51,12 @@ public class Client implements IObservateur {
         return this.ville;
     }
 
-    public double getCompteCourant() {
-        return this.compteCourant;
+    public double getSoldeCompteCourant() {
+        return this.soldeCompteCourant;
     }
 
     public void debiterCompteCourant(double montant) {
-        this.compteCourant -= montant;
+        this.soldeCompteCourant -= montant;
     }
 
     public String recevoirNotification() {
@@ -58,7 +66,11 @@ public class Client implements IObservateur {
     @Override
     public void actualiser(String message) {
         this.message = message;
-        System.out.println("Nouvelle notification : " + this.message);
+        System.out.println(ELogType.UPDATE
+                + " - "
+                + Utils.formaterDate(new Date(), "yyyy-MM-dd HH:mm:ss")
+                + " --> "
+                + this.message);
     }
 
     @Override
@@ -70,7 +82,7 @@ public class Client implements IObservateur {
                 + ", adresse='" + adresse + '\''
                 + ", codePostal='" + codePostal + '\''
                 + ", ville='" + ville + '\''
-                + ", compteCourant=" + compteCourant
+                + ", soldeCompteCourant=" + soldeCompteCourant
                 + ", message='" + message + '\''
                 + '}';
     }

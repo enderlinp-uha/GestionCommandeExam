@@ -7,6 +7,7 @@ public class Commande {
     private Client client;
     private List<Produit> produits = new ArrayList<>();
     private double prixTotal = 0.0;
+    private EMoyenPaiement moyenPaiement;
     private boolean statut = false;
 
     private String conclusion = "";
@@ -16,33 +17,36 @@ public class Commande {
         this.client = builder.client;
         this.produits = builder.produits;
         this.prixTotal = builder.prixTotal;
+        this.moyenPaiement = builder.moyenPaiement;
         this.statut = builder.statut;
-
-        STransactionLogger.getInstance().log(ELogType.STATUT, "Commande en cours");
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public Client getClient() {
-        return client;
+        return this.client;
     }
 
     public List<Produit> getProduits() {
-        return produits;
+        return this.produits;
     }
 
     public double getPrixTotal() {
-        return prixTotal;
+        return this.prixTotal;
+    }
+
+    public EMoyenPaiement getMoyenPaiement() {
+        return this.moyenPaiement;
     }
 
     public boolean getStatut() {
-        return statut;
+        return this.statut;
     }
 
     public String getConclusion() {
-        return conclusion;
+        return this.conclusion;
     }
 
     public void setId(int id) {
@@ -64,6 +68,7 @@ public class Commande {
                 + ", client=" + client.toString()
                 + ", produits=" + produits
                 + ", prixTotal=" + prixTotal
+                + ", moyenPaiement=" + moyenPaiement
                 + ", statut=" + statut
                 + ", conclusion='" + conclusion + '\''
                 + "}";
@@ -74,6 +79,7 @@ public class Commande {
         private Client client;
         private List<Produit> produits = new ArrayList<>();
         private double prixTotal = 0.0;
+        private EMoyenPaiement moyenPaiement;
         private boolean statut;
 
         public CommandeBuilder() {
@@ -97,6 +103,11 @@ public class Commande {
 
         public CommandeBuilder setPrixTotal(double prixTotal) {
             this.prixTotal = prixTotal;
+            return this;
+        }
+
+        public CommandeBuilder setMoyenPaiement(EMoyenPaiement moyenPaiement) {
+            this.moyenPaiement = moyenPaiement;
             return this;
         }
 

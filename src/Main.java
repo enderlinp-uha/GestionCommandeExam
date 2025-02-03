@@ -6,19 +6,27 @@ public class Main {
         produits.creer(FProduit.creerProduit("2001 : L'Odyssée de l'espace", ECategorieProduit.LIVRE, 8.40, 3));
         produits.creer(FProduit.creerProduit("Interstellar", ECategorieProduit.DVD, 7.45, 10));
         produits.creer(FProduit.creerProduit("Knight of Cups", ECategorieProduit.DVD, 10.00, 3));
-        produits.afficherListeProduits();
+        // produits.afficherListeProduits();
 
         // Création d'un nouveau client
-        Client client = new Client("L'éponge", "Bob", "spongebob@uha.fr", "SERFA", "68200", "Mulhouse", 100.0);
+        Client client = FClient.creerClient(
+                "SPONGE",
+                "Bob",
+                "spongebob@uha.fr",
+                "Serfa - 61 rue Albert Camus",
+                "68200",
+                "Mulhouse",
+                1000.0);
 
         // Initialisation de la chaîne de responsabilités
-        ChaineInitialistion chaine = new ChaineInitialistion();
+        ChainInitialistion chaine = new ChainInitialistion();
+
+        // Initialisation d'un nouveau panier
+        Panier panier = new Panier();
 
         // Ajout des articles au panier
-        Panier panier = new Panier();
         panier.ajouterPanier(produits.obtenirProduit(1));
         panier.ajouterPanier(produits.obtenirProduit(4));
-        // System.out.println(panier);
 
         // Calcul du prix total du panier
         double prixTotal = panier.calculerPrixTotalPanier();
@@ -28,9 +36,10 @@ public class Main {
                 .setClient(client)
                 .setProduits(panier.obtenirPanier())
                 .setPrixTotal(prixTotal)
+                .setMoyenPaiement(EMoyenPaiement.CREDIT) // Règlement par carte bancaire
                 .build();
 
         // Traitement de la commande
-        chaine.gererCommande(commande);
+        chaine.traiterCommande(commande);
     }
 }

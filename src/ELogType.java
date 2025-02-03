@@ -1,3 +1,3 @@
 public enum ELogType {
-    ERREUR, INFO, STATUT, PAIEMENT
+    ERROR, INFO, UPDATE
 }

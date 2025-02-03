@@ -3,7 +3,7 @@ import java.util.List;
 
 public class CommandeNotification implements ISujet {
     private List<IObservateur> observateurs;
-    private String message;
+    private String message = "";
 
     public CommandeNotification() {
         observateurs = new ArrayList<IObservateur>();

@@ -1,4 +1,5 @@
 public class FMoyenPaiement {
+
     public static IMoyenPaiement payerCarteBancaire() {
         return new CarteBancaire();
     }
