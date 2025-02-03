@@ -8,6 +8,12 @@ public class ChaineVerificationStock implements ICommandeGestionnaire {
 
     @Override
     public void gererCommande(Commande commande) {
-        System.out.println(commande);
+        /*for (Produit produit : commande.getProduits())
+            if (SProduitBdd.getInstance().obtenirProduit(produit.obtenirId()).obtenirStock() > 1) {
+                return;
+            }
+        }*/
+
+        suivant.gererCommande(commande);
     }
 }

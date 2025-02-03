@@ -1,4 +1,4 @@
-public class SBaseDeDonneesProduit {
+public class SProduitBdd {
     private static ProduitBdd instance = null;
 
     public static ProduitBdd getInstance() {
