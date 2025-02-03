@@ -1,7 +1,7 @@
 public class SProduitBdd {
     private static ProduitBdd instance = null;
 
-    public SProduitBdd() {}
+    private SProduitBdd() {}
 
     public static ProduitBdd getInstance() {
         if (instance == null) {
