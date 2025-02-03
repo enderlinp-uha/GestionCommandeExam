@@ -17,6 +17,18 @@ public class Produit {
         return id;
     }
 
+    public ECategorieProduit getCategorie() {
+        return categorie;
+    }
+
+    public double getPrixUnitaire() {
+        return prixUnitaire;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
     @Override
     public String toString() {
         return "Produit{"

@@ -9,7 +9,7 @@ public class TransactionLogger {
         this.log(ELogType.INFO, "Initialisation de l'enregistreur");
     }
 
-    private String prependLog(ELogType type, String message) {
+    private String prefixerLog(ELogType type, String message) {
         StringBuilder sb = new StringBuilder();
         sb.append(type);
         sb.append(" - ");
@@ -21,7 +21,7 @@ public class TransactionLogger {
     }
 
     public void log(ELogType type, String message) {
-        String entry = prependLog(type, message);
+        String entry = prefixerLog(type, message);
         logs.add(entry);
 
         System.out.println(entry);

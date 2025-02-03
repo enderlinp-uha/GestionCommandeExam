@@ -9,7 +9,7 @@ public class Commande {
 
     private String conclusion = "";
 
-    private Commande(CommandBuilder builder) {
+    private Commande(CommandeBuilder builder) {
         this.id = builder.id;
         this.produits = builder.produits;
         this.prixTotal = builder.prixTotal;
@@ -55,33 +55,35 @@ public class Commande {
                 + "}";
     }
 
-    public static class CommandBuilder {
+    public static class CommandeBuilder {
         private int id;
         private List<Produit> produits = new ArrayList<>();
         private double prixTotal = 0.0;
         private EStatutCommande statut;
 
-        public CommandBuilder setId(int id) {
+        public CommandeBuilder setId(int id) {
             this.id = id;
             return this;
         }
 
-        public CommandBuilder setProduits(List<Produit> produits) {
+        public CommandeBuilder setProduits(List<Produit> produits) {
             this.produits = produits;
             return this;
         }
 
-        public CommandBuilder setPrixTotal(double prixTotal) {
+        public CommandeBuilder setPrixTotal(double prixTotal) {
             this.prixTotal = prixTotal;
             return this;
         }
 
-        public CommandBuilder setStatut(EStatutCommande statut) {
+        public CommandeBuilder setStatut(EStatutCommande statut) {
             this.statut = statut;
             return this;
         }
 
         public Commande build() {
+            STransactionLogger.getInstance().log(ELogType.STATUT, "Commande en cours");
+
             return new Commande(this);
         }
     }
