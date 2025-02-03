@@ -2,11 +2,10 @@ public class Main {
     public static void main(String[] args) {
         // Initialisation de la base de données des produits
         ProduitBdd produits = SProduitBdd.getInstance();
-        produits.creer(FProduit.creerProduit("Blade Runner", ECategorieProduit.LIVRE, 8.00, 5));
-        produits.creer(FProduit.creerProduit("2001 : L'Odyssée de l'espace", ECategorieProduit.LIVRE, 8.40, 3));
-        produits.creer(FProduit.creerProduit("Interstellar", ECategorieProduit.DVD, 7.45, 10));
-        produits.creer(FProduit.creerProduit("Knight of Cups", ECategorieProduit.DVD, 10.00, 2));
-        //produits.afficherListeProduits();
+        produits.ajouterProduit(FProduit.creerProduit("Blade Runner", ECategorieProduit.LIVRE, 8.00, 5));
+        produits.ajouterProduit(FProduit.creerProduit("2001 : L'Odyssée de l'espace", ECategorieProduit.LIVRE, 8.40, 3));
+        produits.ajouterProduit(FProduit.creerProduit("Interstellar", ECategorieProduit.DVD, 7.45, 10));
+        produits.ajouterProduit(FProduit.creerProduit("Knight of Cups", ECategorieProduit.DVD, 10.00, 2));
 
         // Création d'un nouveau client
         Client client = FClient.creerClient(
@@ -36,5 +35,8 @@ public class Main {
 
         // Traitement de la commande
         chaine.traiterCommande(commande);
+
+        // On vide le panier
+        panier.viderPanier();
     }
 }
