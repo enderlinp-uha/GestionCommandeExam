@@ -7,8 +7,10 @@ public class ProduitBdd {
         STransactionLogger.getInstance().log(ELogType.INFO, "Initialisation de la base de données des produits");
     }
 
-    public void creer(Produit produit) {
+    public void ajouterProduit(Produit produit) {
         this.produits.put(produit.obtenirId(), produit);
+
+        STransactionLogger.getInstance().log(ELogType.INFO, "Un produit a été ajoutée à la base de données : " + produit.toString());
     }
 
     public Produit obtenirProduit(int id) {
