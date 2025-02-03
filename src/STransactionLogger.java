@@ -1,7 +1,7 @@
 public class STransactionLogger {
     private static TransactionLogger instance = null;
 
-    public STransactionLogger() {}
+    private STransactionLogger() {}
 
     public static TransactionLogger getInstance() {
         if (instance == null) {
