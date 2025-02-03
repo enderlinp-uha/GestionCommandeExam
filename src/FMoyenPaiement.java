@@ -1,14 +1,9 @@
 public class FMoyenPaiement {
-
-    public static IMoyenPaiement payerCarteBancaire() {
-        return new CarteBancaire();
-    }
-
-    public static IMoyenPaiement payerCryptomonnaie() {
-        return new Cryptomonnaie();
-    }
-
-    public static IMoyenPaiement payerPayPal() {
-        return new PayPal();
+    public static IMoyenPaiement creerMoyenPaiement(EMoyenPaiement type) {
+        return switch(type) {
+            case CREDIT -> new CarteBancaire();
+            case CRYPTO -> new Cryptomonnaie();
+            case PAYPAL -> new PayPal();
+        };
     }
 }
