@@ -1,3 +1,3 @@
 public enum ECategorieProduit {
-    CD, DVD, LIVRE
+    BLUERAY, CD, DVD, LIVRE
 }
