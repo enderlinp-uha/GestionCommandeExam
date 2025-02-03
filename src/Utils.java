@@ -12,6 +12,7 @@ public class Utils {
 
     public static String formaterDate(Date date, String format) {
         SimpleDateFormat nouvelleDate = new SimpleDateFormat(format);
+
         return nouvelleDate.format(date);
     }
 }
