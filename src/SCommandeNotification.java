@@ -1,7 +1,7 @@
 public class SCommandeNotification {
     private static CommandeNotification instance = null;
 
-    public SCommandeNotification() {}
+    private SCommandeNotification() {}
 
     public static CommandeNotification getInstance() {
         if (instance == null) {
