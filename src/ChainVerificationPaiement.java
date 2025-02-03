@@ -8,6 +8,11 @@ public class ChainVerificationPaiement implements ICommandeGestionnaire{
 
     @Override
     public void traiterCommande(Commande commande) {
+        // On vérifie la validité du moyen de paiement
+        if (!Utils.estMoyenPaiement(commande.getMoyenPaiement())) {
+            suivant.traiterCommande(commande);
+        }
+
         Client client = commande.getClient();
         double prixTotal = commande.getPrixTotal();
 
@@ -22,10 +27,11 @@ public class ChainVerificationPaiement implements ICommandeGestionnaire{
                     + "Nous sommes au regret de vous anoncer que votre commande a été annulée.");
             System.out.println(client.recevoirNotification());
         } else {
-            // Initialisation du système de paiement et règlement par carte bancaire
-            IMoyenPaiement moyenPaiement = FMoyenPaiement.payerCarteBancaire();
+            // Initialisation du système de paiement et règlement de la commande
+            IMoyenPaiement moyenPaiement = FMoyenPaiement.creerMoyenPaiement(commande.getMoyenPaiement());
             moyenPaiement.payer(prixTotal);
 
+            // On débite le compte courant du client du montant total de la commande
             client.debiterCompteCourant(prixTotal);
 
             systemeNotification.publierNotification("Cher client, "
@@ -33,7 +39,9 @@ public class ChainVerificationPaiement implements ICommandeGestionnaire{
                     + "Nous vous remercions de votre confiance.");
             System.out.println(client.recevoirNotification());
 
-            suivant.traiterCommande(commande);
+            if (suivant != null) {
+                suivant.traiterCommande(commande);
+            }
         }
     }
 }
