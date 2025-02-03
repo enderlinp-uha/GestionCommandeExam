@@ -24,8 +24,7 @@ public class ProduitBdd {
             sb.append("\n");
         }
         sb.append("----------------------------------------");
-        String sortie = sb.toString();
 
-        System.out.println(sortie);
+        System.out.println(sb);
     }
 }
