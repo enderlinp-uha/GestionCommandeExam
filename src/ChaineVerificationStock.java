@@ -41,8 +41,9 @@ public class ChaineVerificationStock implements ICommandeGestionnaire {
             }
         }
 
-        // On retire les articles du stock pour chaque element du panier
+        // On retire les articles du stock correspondant à ceux du panier
         for (Produit produit : commande.getProduits()) {
+            // On ne retire qu'un élément à la fois
             produit.retirerStock();
         }
 
