@@ -1,5 +1,5 @@
 public class CarteBancaire implements IMoyenPaiement {
-    private String moyenPaiement = Utils.libelleMoyenPaiement(EMoyenPaiement.CREDIT);
+    private final String moyenPaiement = Utils.libelleMoyenPaiement(EMoyenPaiement.CREDIT);
 
     public CarteBancaire() {
         STransactionLogger.getInstance().log(ELogType.DEBUG, "Initialisation du système de paiement par " + moyenPaiement);
