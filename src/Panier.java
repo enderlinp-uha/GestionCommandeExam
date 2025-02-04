@@ -8,7 +8,7 @@ public class Panier {
         double total = 0;
 
         for (Produit produit : panier) {
-            total += produit.obtenirPrixUnitaire();
+            total += produit.getPrixUnitaire();
         }
 
         total = Utils.arrondirDouble(total, 2);
