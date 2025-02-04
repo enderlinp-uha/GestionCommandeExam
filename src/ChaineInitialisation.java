@@ -1,18 +1,20 @@
 public class ChaineInitialisation {
-    private final ICommandeGestionnaire premiereChaine;
+    private ICommandeGestionnaire premiereChaine;
 
     public ChaineInitialisation() {
         this.premiereChaine = new ChaineVerificationStock();
-        ICommandeGestionnaire chainePaiement = new ChaineVerificationPaiement();
-        ICommandeGestionnaire chaineEnvoi = new ChaineEnvoiCommande();
+        ICommandeGestionnaire chaineVerificationPaiement = new ChaineVerificationPaiement();
+        ICommandeGestionnaire chaineEnvoiCommande = new ChaineEnvoiCommande();
 
-        this.premiereChaine.setSuivant(chainePaiement);
-        chainePaiement.setSuivant(chaineEnvoi);
+        this.premiereChaine.setSuivant(chaineVerificationPaiement);
+        chaineVerificationPaiement.setSuivant(chaineEnvoiCommande);
     }
 
     public void traiterCommande(Commande commande) {
         STransactionLogger.getInstance().log(ETypeLog.INFO, commande.toString());
+
         this.premiereChaine.traiterCommande(commande);
+
         STransactionLogger.getInstance().log(ETypeLog.INFO, commande.toString());
     }
 }
