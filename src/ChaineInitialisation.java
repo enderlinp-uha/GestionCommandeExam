@@ -1,9 +1,9 @@
-public class ChainInitialistion {
-    private ICommandeGestionnaire premiereChaine;
+public class ChaineInitialisation {
+    private final ICommandeGestionnaire premiereChaine;
 
-    public ChainInitialistion() {
-        this.premiereChaine = new ChainVerificationStock();
-        ICommandeGestionnaire chainePaiement = new ChainVerificationPaiement();
+    public ChaineInitialisation() {
+        this.premiereChaine = new ChaineVerificationStock();
+        ICommandeGestionnaire chainePaiement = new ChaineVerificationPaiement();
         ICommandeGestionnaire chaineEnvoi = new ChaineEnvoiCommande();
 
         this.premiereChaine.setSuivant(chainePaiement);

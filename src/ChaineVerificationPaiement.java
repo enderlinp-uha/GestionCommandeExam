@@ -1,4 +1,4 @@
-public class ChainVerificationPaiement implements ICommandeGestionnaire{
+public class ChaineVerificationPaiement implements ICommandeGestionnaire{
     private ICommandeGestionnaire suivant = null;
 
     @Override

@@ -19,7 +19,7 @@ public class Main {
                 1000.00);
 
         // Initialisation de la chaîne de responsabilités
-        ChainInitialistion chaine = new ChainInitialistion();
+        ChaineInitialisation chaine = new ChaineInitialisation();
 
         // Initialisation d'un nouveau panier, facilite le calcul du montant total de la commande
         Panier panier = new Panier();

@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class ChainVerificationStock implements ICommandeGestionnaire {
+public class ChaineVerificationStock implements ICommandeGestionnaire {
     private ICommandeGestionnaire suivant = null;
 
     @Override
