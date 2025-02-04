@@ -66,11 +66,15 @@ public class Client implements IObservateur {
     @Override
     public void actualiser(String message) {
         this.message = message;
-        System.out.println(ELogType.NOTICE
-                + " - "
-                + Utils.formaterDate(new Date(), "yyyy-MM-dd HH:mm:ss")
-                + " --> "
-                + this.message);
+
+        StringBuilder sb = new StringBuilder();
+        sb.append(ELogType.NOTICE);
+        sb.append(" - ");
+        sb.append(Utils.formaterDate(new Date(), "yyyy-MM-dd HH:mm:ss"));
+        sb.append(" --> ");
+        sb.append(this.message);
+
+        System.out.println(sb);
     }
 
     @Override
