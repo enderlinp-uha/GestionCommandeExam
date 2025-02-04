@@ -7,6 +7,7 @@ public class SCommandeNotification {
         if (instance == null) {
             instance = new CommandeNotification();
         }
+
         return instance;
     }
 }

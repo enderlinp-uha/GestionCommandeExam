@@ -7,6 +7,7 @@ public class SProduitBdd {
         if (instance == null) {
             instance = new ProduitBdd();
         }
+
         return instance;
     }
 }

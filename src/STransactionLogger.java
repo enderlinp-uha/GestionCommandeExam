@@ -7,6 +7,7 @@ public class STransactionLogger {
         if (instance == null) {
             instance = new TransactionLogger();
         }
+
         return instance;
     }
 }
