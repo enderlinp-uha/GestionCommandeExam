@@ -42,8 +42,9 @@ public class ChainVerificationPaiement implements ICommandeGestionnaire{
             sb.append("Nous avons le plaisir de vous annoncer que votre commande a été validée dans sa totalité. ");
             sb.append("Vous trouverez ci-dessous un récapitulatif des articles commandés : ");
             for (Produit produit : commande.getProduits()) {
-                sb.append(produit).append(" ");
+                sb.append(produit.formaterProduit());
             }
+            sb.append("Prix total de la commande : ").append(prixTotal).append(" €. ");
             sb.append("Nous vous remercions de votre confiance.");
 
             systemeNotification.publierNotification(sb.toString());
