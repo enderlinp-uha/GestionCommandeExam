@@ -1,5 +1,3 @@
-import java.util.Objects;
-
 public class ChaineEnvoiCommande implements ICommandeGestionnaire {
     private ICommandeGestionnaire suivant = null;
 
@@ -16,10 +14,7 @@ public class ChaineEnvoiCommande implements ICommandeGestionnaire {
         // Initialisation du système de notification
         CommandeNotification systemeNotification = SCommandeNotification.getInstance();
 
-        if (Objects.equals(client.getAdresse(), "")
-                || Objects.equals(client.getCodePostal(), "")
-                || Objects.equals(client.getVille(), "")) {
-
+        if (client.getAdresse() == "" || client.getCodePostal() == "" || client.getVille() == "") {
             commande.setStatut(false);
             commande.setConclusion("Adresse incomplète. Commande annulée");
             systemeNotification.publierNotification("Cher "
