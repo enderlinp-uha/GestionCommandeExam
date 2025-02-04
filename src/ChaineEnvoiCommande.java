@@ -32,7 +32,10 @@ public class ChaineEnvoiCommande implements ICommandeGestionnaire {
             commande.setConclusion("Commande terminée");
             systemeNotification.publierNotification("Cher "
                     + prenomClient + ", "
-                    + "Nous avons le plaisir de vous annoncer que votre commande a été expédiée. "
+                    + "Nous avons le plaisir de vous annoncer que votre commande a été expédiée à l'adresse suivante : "
+                    + client.getAdresse() + ", "
+                    + client.getCodePostal() + " "
+                    + client.getVille() + ". "
                     + "Nous vous remercions de votre confiance.");
             System.out.println(client.recevoirNotification());
         }
