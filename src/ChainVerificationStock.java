@@ -17,7 +17,7 @@ public class ChainVerificationStock implements ICommandeGestionnaire {
 
         // Si le stock est vide pour au moins un article
         for (Produit produit : commande.getProduits()) {
-            int stock = produit.obtenirStock();
+            int stock = produit.getStock();
 
             if (stock > 1) {
                 produit.retirerStock();
