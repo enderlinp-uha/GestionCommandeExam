@@ -19,7 +19,7 @@ public class ChainVerificationStock implements ICommandeGestionnaire {
         for (Produit produit : commande.getProduits()) {
             int stock = produit.getStock();
 
-            if (stock > 1) {
+            if (stock > 0) {
                 produit.retirerStock();
             } else {
                 commande.setStatut(false);
