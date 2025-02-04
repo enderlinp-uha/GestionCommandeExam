@@ -5,12 +5,11 @@ public class Panier {
     private List<Produit> panier = new ArrayList<>();
 
     public double calculerPrixTotalPanier() {
-        double total = 0;
+        double total = 0.0;
 
         for (Produit produit : panier) {
             total += produit.getPrixUnitaire();
         }
-
         total = Utils.arrondirDouble(total, 2);
 
         return total;
