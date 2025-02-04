@@ -33,6 +33,15 @@ public class Produit {
         this.stock -= 1;
     }
 
+    public String formaterProduit() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.nom).append(" - ");
+        sb.append(this.categorie).append(" - ");
+        sb.append(this.prixUnitaire).append(" € ; ");
+
+        return sb.toString();
+    }
+
     @Override
     public String toString() {
         return "Produit{"
