@@ -27,6 +27,7 @@ public class Main {
         // Ajout des articles au panier
         panier.ajouterPanier(produits.obtenirProduit(1));
         panier.ajouterPanier(produits.obtenirProduit(3));
+        // System.out.println(panier);
 
         // Construction de la commande, avec règlement par carte bancaire
         Commande commande = FCommande.creerCommandeCarteBancaire(
@@ -39,5 +40,6 @@ public class Main {
 
         // On vide le panier
         panier.viderPanier();
+        // System.out.println(panier);
     }
 }
