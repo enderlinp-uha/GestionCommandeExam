@@ -47,7 +47,10 @@ public class ChainVerificationPaiement implements ICommandeGestionnaire{
                 sb.append(produit.formaterProduit());
                 ordre++;
             }
-            sb.append("Prix total de la commande : ").append(prixTotal).append(" €. ");
+            sb.append("Prix total de la commande : ");
+            sb.append(prixTotal).append(" € ");
+            sb.append("réglés par ");
+            sb.append(Utils.libelleMoyenPaiement(commande.getMoyenPaiement())).append(". ");
             sb.append("Nous vous remercions de votre confiance.");
 
             systemeNotification.publierNotification(sb.toString());
