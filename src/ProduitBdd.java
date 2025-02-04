@@ -8,9 +8,9 @@ public class ProduitBdd {
     }
 
     public void ajouterProduit(Produit produit) {
-        this.produits.put(produit.obtenirId(), produit);
+        this.produits.put(produit.getId(), produit);
 
-        STransactionLogger.getInstance().log(ELogType.INFO, "Un produit a été ajouté à la base de données : " + produit.toString());
+        STransactionLogger.getInstance().log(ELogType.INFO, "Un produit a été ajouté à la base de données : " + produit);
     }
 
     public Produit obtenirProduit(int id) {
@@ -22,8 +22,7 @@ public class ProduitBdd {
 
         sb.append("---------- Liste des produits ----------\n");
         for (Produit produit : this.produits.values()) {
-            sb.append(produit);
-            sb.append("\n");
+            sb.append(produit).append("\n");
         }
         sb.append("----------------------------------------");
 
