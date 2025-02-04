@@ -3,6 +3,7 @@ public class Main {
         // Initialisation de la base de données des produits
         ProduitBdd produits = SProduitBdd.getInstance();
         produits.ajouterProduit(FProduit.creerProduit("Blade Runner", ECategorieProduit.LIVRE, 8.00, 5));
+        produits.ajouterProduit(FProduit.creerProduit("Blade Runner 2049 4K", ECategorieProduit.BLURAY, 10.86, 8));
         produits.ajouterProduit(FProduit.creerProduit("2001 : L'Odyssée de l'espace", ECategorieProduit.LIVRE, 8.40, 3));
         produits.ajouterProduit(FProduit.creerProduit("Interstellar", ECategorieProduit.DVD, 7.45, 10));
         produits.ajouterProduit(FProduit.creerProduit("Knight of Cups", ECategorieProduit.DVD, 10.00, 2));
@@ -15,7 +16,7 @@ public class Main {
                 "Serfa - 61 rue Albert Camus",
                 "68200",
                 "Mulhouse",
-                1000.0);
+                1000.00);
 
         // Initialisation de la chaîne de responsabilités
         ChainInitialistion chaine = new ChainInitialistion();
@@ -25,7 +26,7 @@ public class Main {
 
         // Ajout des articles au panier
         panier.ajouterPanier(produits.obtenirProduit(1));
-        panier.ajouterPanier(produits.obtenirProduit(4));
+        panier.ajouterPanier(produits.obtenirProduit(3));
 
         // Construction de la commande, avec règlement par carte bancaire
         Commande commande = FCommande.creerCommandeCarteBancaire(
