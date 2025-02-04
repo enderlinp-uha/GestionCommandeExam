@@ -44,11 +44,11 @@ public class ChainVerificationPaiement implements ICommandeGestionnaire{
             int ordre = 1;
             for (Produit produit : commande.getProduits()) {
                 sb.append("#").append(ordre).append(". ");
-                sb.append(produit.formaterProduit());
+                sb.append(produit.recapitulatifProduit());
                 ordre++;
             }
             sb.append("Prix total de la commande : ");
-            sb.append(prixTotal).append(" € ");
+            sb.append(prixTotal).append("€ ");
             sb.append("réglés par ");
             sb.append(Utils.libelleMoyenPaiement(commande.getMoyenPaiement())).append(". ");
             sb.append("Nous vous remercions de votre confiance.");

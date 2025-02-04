@@ -7,6 +7,6 @@ public class Cryptomonnaie implements IMoyenPaiement {
 
     @Override
     public void payer(double montant) {
-        STransactionLogger.getInstance().log(ETypeLog.INFO, montant + " € réglés par " + moyenPaiement);
+        STransactionLogger.getInstance().log(ETypeLog.INFO, montant + "€ réglés par " + moyenPaiement);
     }
 }
