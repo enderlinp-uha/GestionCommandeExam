@@ -29,8 +29,6 @@ public class Panier {
 
     @Override
     public String toString() {
-        return "Panier{"
-                + "panier=" + panier
-                + '}';
+        return "Panier{" + panier + '}';
     }
 }
