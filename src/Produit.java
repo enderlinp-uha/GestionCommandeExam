@@ -13,19 +13,19 @@ public class Produit {
         this.stock = stock;
     }
 
-    public int obtenirId() {
+    public int getId() {
         return id;
     }
 
-    public ECategorieProduit obtenirCategorie() {
+    public ECategorieProduit getCategorie() {
         return categorie;
     }
 
-    public double obtenirPrixUnitaire() {
+    public double getPrixUnitaire() {
         return prixUnitaire;
     }
 
-    public int obtenirStock() {
+    public int getStock() {
         return stock;
     }
 
