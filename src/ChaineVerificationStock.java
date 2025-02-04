@@ -28,7 +28,7 @@ public class ChaineVerificationStock implements ICommandeGestionnaire {
         for (Map.Entry<Produit, Integer> quantite : quantitesPanier.entrySet()) {
             Produit produit = quantite.getKey();
 
-            if (produit.getStock() < quantite.getValue()) {
+            if (quantite.getValue() > produit.getStock()) {
                 commande.setStatut(false);
                 commande.setConclusion("Stock insuffisant. Commande annulée");
                 systemeNotification.publierNotification("Cher "
