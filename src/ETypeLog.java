@@ -1,3 +1,3 @@
-public enum ELogType {
+public enum ETypeLog {
     DEBUG, ERROR, INFO, NOTICE, WARNING
 }
