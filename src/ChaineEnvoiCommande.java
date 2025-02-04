@@ -14,7 +14,7 @@ public class ChaineEnvoiCommande implements ICommandeGestionnaire {
         // Initialisation du système de notification
         CommandeNotification systemeNotification = SCommandeNotification.getInstance();
 
-        if (client.getAdresse() == "" || client.getCodePostal() == "" || client.getVille() == "") {
+        if (client.getAdresse().isEmpty() || client.getCodePostal().isEmpty() || client.getVille().isEmpty()) {
             commande.setStatut(false);
             commande.setConclusion("Adresse incomplète. Commande annulée");
             systemeNotification.publierNotification("Cher "
