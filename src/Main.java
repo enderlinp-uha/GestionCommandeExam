@@ -12,7 +12,7 @@ public class Main {
         Client client = FClient.creerClient(
                 "SPONGE",
                 "Bob",
-                "spongebob@uha.fr",
+                "bob.sponge@uha.fr",
                 "Serfa - 61 rue Albert Camus",
                 "68200",
                 "Mulhouse",
