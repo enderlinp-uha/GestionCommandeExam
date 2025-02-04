@@ -3,7 +3,7 @@ public class CommandeNotification implements ISujet {
     private String message = "";
 
     public CommandeNotification() {
-        STransactionLogger.getInstance().log(ELogType.DEBUG, "Initialisation du système de notification");
+        STransactionLogger.getInstance().log(ETypeLog.DEBUG, "Initialisation du système de notification");
     }
 
     public void ajouterObservateur(IObservateur observateur) {

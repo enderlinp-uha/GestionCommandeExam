@@ -11,8 +11,8 @@ public class ChainInitialistion {
     }
 
     public void traiterCommande(Commande commande) {
-        STransactionLogger.getInstance().log(ELogType.INFO, commande.toString());
+        STransactionLogger.getInstance().log(ETypeLog.INFO, commande.toString());
         this.premiereChaine.traiterCommande(commande);
-        STransactionLogger.getInstance().log(ELogType.INFO, commande.toString());
+        STransactionLogger.getInstance().log(ETypeLog.INFO, commande.toString());
     }
 }

@@ -4,13 +4,13 @@ public class ProduitBdd {
     private HashMap<Integer, Produit> produits = new HashMap<>();
 
     public ProduitBdd() {
-        STransactionLogger.getInstance().log(ELogType.DEBUG, "Initialisation de la base de données des produits");
+        STransactionLogger.getInstance().log(ETypeLog.DEBUG, "Initialisation de la base de données des produits");
     }
 
     public void ajouterProduit(Produit produit) {
         this.produits.put(produit.getId(), produit);
 
-        STransactionLogger.getInstance().log(ELogType.INFO, "Un produit a été ajouté à la base de données : " + produit);
+        STransactionLogger.getInstance().log(ETypeLog.INFO, "Un produit a été ajouté à la base de données : " + produit);
     }
 
     public Produit obtenirProduit(int id) {

@@ -68,7 +68,7 @@ public class Client implements IObservateur {
         this.message = message;
 
         StringBuilder sb = new StringBuilder();
-        sb.append(ELogType.NOTICE);
+        sb.append(ETypeLog.NOTICE);
         sb.append(" - ");
         sb.append(Utils.formaterDate(new Date(), "yyyy-MM-dd HH:mm:ss"));
         sb.append(" --> ");
