@@ -36,10 +36,17 @@ public class ChainVerificationPaiement implements ICommandeGestionnaire{
             // On débite le compte courant du client du montant total de la commande
             client.debiterCompteCourant(prixTotal);
 
-            systemeNotification.publierNotification("Cher "
-                    + prenomClient + ", "
-                    + "Nous avons le plaisir de vous annoncer que votre commande a été validée dans sa totalité. "
-                    + "Nous vous remercions de votre confiance.");
+            // Construction du récapitulatif de la commande
+            StringBuilder sb = new StringBuilder();
+            sb.append("Cher ").append(prenomClient).append(", ");
+            sb.append("Nous avons le plaisir de vous annoncer que votre commande a été validée dans sa totalité. ");
+            sb.append("Vous trouverez ci-dessous un récapitulatif des articles commandés : ");
+            for (Produit produit : commande.getProduits()) {
+                sb.append(produit).append(" ");
+            }
+            sb.append("Nous vous remercions de votre confiance.");
+
+            systemeNotification.publierNotification(sb.toString());
             System.out.println(client.recevoirNotification());
 
             if (suivant != null) {
