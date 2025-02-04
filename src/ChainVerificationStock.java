@@ -9,6 +9,7 @@ public class ChainVerificationStock implements ICommandeGestionnaire {
     @Override
     public void traiterCommande(Commande commande) {
         Client client = commande.getClient();
+        String prenomClient = client.getPrenom();
 
         // Initialisation du système de notification
         CommandeNotification systemeNotification = SCommandeNotification.getInstance();
@@ -23,7 +24,8 @@ public class ChainVerificationStock implements ICommandeGestionnaire {
             } else {
                 commande.setStatut(false);
                 commande.setConclusion("Stock insuffisant. Commande annulée");
-                systemeNotification.publierNotification("Cher client, "
+                systemeNotification.publierNotification("Cher "
+                        + prenomClient + ", "
                         + "Un ou plusieurs articles de votre panier ne sont plus en stock. "
                         + "Nous sommes au regret de vous anoncer que votre commande a été annulée.");
                 System.out.println(client.recevoirNotification());
@@ -32,8 +34,9 @@ public class ChainVerificationStock implements ICommandeGestionnaire {
             }
         }
 
-        systemeNotification.publierNotification("Cher client, " +
-                "Nous avons le plaisir de vous annoncer que votre commande vient d'être créé.");
+        systemeNotification.publierNotification("Cher "
+                + prenomClient + ", "
+                + "Nous avons le plaisir de vous annoncer que votre commande a été créé.");
         System.out.println(client.recevoirNotification());
 
         if (suivant != null) {

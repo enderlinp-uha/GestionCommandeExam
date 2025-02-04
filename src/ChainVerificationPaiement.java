@@ -14,6 +14,7 @@ public class ChainVerificationPaiement implements ICommandeGestionnaire{
         }
 
         Client client = commande.getClient();
+        String prenomClient = client.getPrenom();
         double prixTotal = commande.getPrixTotal();
 
         // Initialisation du système de notification
@@ -22,7 +23,8 @@ public class ChainVerificationPaiement implements ICommandeGestionnaire{
         if (prixTotal > client.getSoldeCompteCourant()) {
             commande.setStatut(false);
             commande.setConclusion("Solde insuffisant. Commande annulée");
-            systemeNotification.publierNotification("Cher client, "
+            systemeNotification.publierNotification("Cher "
+                    + prenomClient + ", "
                     + "Une erreur est survenue lors du règlement en ligne. "
                     + "Nous sommes au regret de vous anoncer que votre commande a été annulée.");
             System.out.println(client.recevoirNotification());
@@ -34,7 +36,8 @@ public class ChainVerificationPaiement implements ICommandeGestionnaire{
             // On débite le compte courant du client du montant total de la commande
             client.debiterCompteCourant(prixTotal);
 
-            systemeNotification.publierNotification("Cher client, "
+            systemeNotification.publierNotification("Cher "
+                    + prenomClient + ", "
                     + "Nous avons le plaisir de vous annoncer que votre commande a été validée dans sa totalité. "
                     + "Nous vous remercions de votre confiance.");
             System.out.println(client.recevoirNotification());
