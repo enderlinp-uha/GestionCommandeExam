@@ -3,8 +3,10 @@ import java.util.Arrays;
 import java.util.Date;
 
 public class Utils {
-    public static double arrondirDouble(double value) {
-        return Math.round(value * 100.0) / 100.0;
+    public static double arrondirDouble(double valeur, int decimales) {
+        double denominateur = Math.pow(10, decimales);
+
+        return Math.round(valeur * denominateur) / denominateur;
     }
 
     public static boolean estMoyenPaiement(EMoyenPaiement type) {
