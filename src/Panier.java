@@ -11,7 +11,7 @@ public class Panier {
             total += produit.obtenirPrixUnitaire();
         }
 
-        total = Utils.arrondirDouble(total);
+        total = Utils.arrondirDouble(total, 2);
 
         return total;
     }
