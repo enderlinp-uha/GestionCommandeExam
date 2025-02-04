@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class ChainVerificationStock implements ICommandeGestionnaire {
     private ICommandeGestionnaire suivant = null;
 
@@ -15,13 +18,17 @@ public class ChainVerificationStock implements ICommandeGestionnaire {
         CommandeNotification systemeNotification = SCommandeNotification.getInstance();
         systemeNotification.ajouterObservateur(client);
 
-        // Si le stock est vide pour au moins un article
+        // On récupère les quantités souhaitées pour chaque article qui se trouve dans le panier
+        HashMap<Produit, Integer> quantitesPanier = new HashMap<>();
         for (Produit produit : commande.getProduits()) {
-            int stock = produit.getStock();
+            quantitesPanier.put(produit, quantitesPanier.getOrDefault(produit, 0) + 1);
+        }
 
-            if (stock > 0) {
-                produit.retirerStock();
-            } else {
+        // On vérifie la disponibilité des articles dans le stock
+        for (Map.Entry<Produit, Integer> quantite : quantitesPanier.entrySet()) {
+            Produit produit = quantite.getKey();
+
+            if (produit.getStock() < quantite.getValue()) {
                 commande.setStatut(false);
                 commande.setConclusion("Stock insuffisant. Commande annulée");
                 systemeNotification.publierNotification("Cher "
@@ -32,6 +39,11 @@ public class ChainVerificationStock implements ICommandeGestionnaire {
 
                 return;
             }
+        }
+
+        // On retire les articles du stock pour chaque element du panier
+        for (Produit produit : commande.getProduits()) {
+            produit.retirerStock();
         }
 
         systemeNotification.publierNotification("Cher "
