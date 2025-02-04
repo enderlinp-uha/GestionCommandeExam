@@ -49,8 +49,8 @@ public class ChaineVerificationStock implements ICommandeGestionnaire {
 
         systemeNotification.publierNotification("Cher "
                 + prenomClient + ", "
-                + "Nous avons le plaisir de vous annoncer que votre commande a été créé. "
-                + "Nous vous remercions de votre confiance.");
+                + "Nous avons le plaisir de vous annoncer que votre bon de commande a été créé. "
+                + "Dans l'attente de votre règlement, nous vous remercions de votre confiance.");
         System.out.println(client.recevoirNotification());
 
         if (suivant != null) {

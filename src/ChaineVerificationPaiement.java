@@ -26,7 +26,8 @@ public class ChaineVerificationPaiement implements ICommandeGestionnaire{
             systemeNotification.publierNotification("Cher "
                     + prenomClient + ", "
                     + "Une erreur est survenue lors du règlement en ligne. "
-                    + "Nous sommes au regret de vous anoncer que votre commande a été annulée.");
+                    + "Nous sommes au regret de vous anoncer que votre commande a été annulée. "
+                    + "Merci de bien vouloir vous rapprocher de votre établissement bancaire.");
             System.out.println(client.recevoirNotification());
         } else {
             // Initialisation du système de paiement et règlement de la commande
