@@ -9,7 +9,6 @@ public class Commande {
     private double prixTotal = 0.0;
     private EMoyenPaiement moyenPaiement;
     private boolean statut = false;
-
     private String conclusion = "";
 
     private Commande(CommandeBuilder builder) {
